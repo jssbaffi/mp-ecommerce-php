@@ -1,7 +1,7 @@
 <?php
-define("BACK_SUCCESS", "/result_success.php");
-define("BACK_PENDING", "/result_pending.php");
-define("BACK_FAILURE", "/result_failure.php");
+define("BACK_SUCCESS", $_SERVER['SERVER_NAME'] . "/result_success.php");
+define("BACK_PENDING", $_SERVER['SERVER_NAME'] . "/result_pending.php");
+define("BACK_FAILURE", $_SERVER['SERVER_NAME'] . "/result_failure.php");
 define("DESCRIPTION_ITEM", "Dispositivo móvil de Tienda e-commerce");
 define("EXTERNAL_REFERENCE", "ABCD1234");
 define("ITEM_ID", "1234");
@@ -22,7 +22,7 @@ function initPoint($title, $price, $unit, $image)
     $item->quantity = $unit;
     $item->unit_price = $price;
     $item->description = DESCRIPTION_ITEM;
-    $item->picture_url = $image;
+    $item->picture_url = $_SERVER['SERVER_NAME'] . $image;
 
     $payer = new MercadoPago\Payer();
     $payer->name = "Lalo";

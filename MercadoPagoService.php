@@ -30,14 +30,14 @@ function createPreference($title, $price, $unit, $image)
     $item->quantity = $unit;
     $item->unit_price = $price;
     $item->description = DESCRIPTION_ITEM;
-    $item->picture_url = "https://jssbaffi-mp-commerce-php.herokuapp.com/assets/u_10168742.jpg";
+    $item->picture_url = $_SERVER['SERVER_NAME'] . $image;
 
     $payer = new MercadoPago\Payer();
     $payer->name = "Lalo";
     $payer->surname = "Landa";
     $payer->email = "test_user_63274575@testuser.com";
     $payer->identification = array(
-        "tyoe" => "DNI",
+        "type" => "DNI",
         "number" => "22.333.444"
     );
     $payer->phone = array(

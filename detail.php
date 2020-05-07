@@ -498,11 +498,11 @@
                                         <?php echo "$" . $_POST['unit'] ?>
                                     </h3>
                                 </div>
-                                <a href="<?php print initPoint($_POST['title'], $_POST['price'], $_POST['unit'], $_POST['img']); ?>">Pay</a>
-                                <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+<!--                                <a href="--><?php //print initPoint($_POST['title'], $_POST['price'], $_POST['unit'], $_POST['img']); ?><!--">Pay</a>-->
+<!--                                <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
                                 <form action="/procesar-pago" method="POST">
                                     <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-                                            data-preference-id="">
+                                            data-preference-id="<?php print initPoint($_POST['title'], $_POST['price'], $_POST['unit'], $_POST['img']); ?>">
                                     </script>
                                 </form>
                             </div>

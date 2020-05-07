@@ -64,5 +64,5 @@ function initPoint($title, $price, $unit, $image)
     $preference->auto_return = "approved";
     $preference->save();
 
-    return $preference->sandbox_init_point;
+    return $preference->id;
 }

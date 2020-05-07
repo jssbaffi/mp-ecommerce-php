@@ -74,7 +74,7 @@ function initPoint($title, $price, $unit, $image)
     $preference->notification_url = NOTIFICATION_URL;
     $preference->save();
 
-    return $preference->init_point;
+    return $preference;
 }
 
 

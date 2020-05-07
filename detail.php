@@ -4,6 +4,7 @@ $preference = createPreference($_POST['title'], $_POST['price'], $_POST['unit'],
 ?>
 
 
+
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser"
       lang="en-US">
@@ -502,12 +503,15 @@ $preference = createPreference($_POST['title'], $_POST['price'], $_POST['unit'],
                                         <?php echo "$" . $_POST['unit'] ?>
                                     </h3>
                                 </div>
-                                <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                                        data-button-label="Pagar la compra"
-                                        data-elements-color="#2D3277"
-                                        data-header-color="#2D3277"
-                                        data-preference-id="<?php print $preference->id; ?>">
-                                </script>
+                                <form action="/procesar-pago.php"
+                                      method="POST">
+                                    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                                            data-button-label="Pagar la compra"
+                                            data-elements-color="#2D3277"
+                                            data-header-color="#2D3277"
+                                            data-preference-id="<?php print $preference->id; ?>">
+                                    </script>
+                                </form>
                             </div>
                         </div>
                     </div>

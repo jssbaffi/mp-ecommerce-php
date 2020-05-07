@@ -6,6 +6,7 @@ define("ACCESS_TOKEN", "APP_USR-6317427424180639-042414-47e969706991d3a442922b07
 define("CLIENT_ID", "469485398");
 define("PUBLIC_KEY", "APP_USR-7eb0138a-189f-4bec-87d1-c0504ead5626");
 
+define("NOTIFICATION_URL", $_SERVER['SERVER_NAME'] . "/notification.php");
 define("BACK_SUCCESS", $_SERVER['SERVER_NAME'] . "/result_success.php");
 define("BACK_PENDING", $_SERVER['SERVER_NAME'] . "/result_pending.php");
 define("BACK_FAILURE", $_SERVER['SERVER_NAME'] . "/result_failure.php");
@@ -56,7 +57,8 @@ function initPoint($title, $price, $unit, $image)
         ),
         "excluded_payment_types" => array(
             array("id" => "atm")
-        )
+        ),
+        "installments" => 6
     );
     $preference->payer = $payer;
     $preference->items = array($item);
@@ -69,12 +71,14 @@ function initPoint($title, $price, $unit, $image)
         "pending" => BACK_PENDING
     );
     $preference->auto_return = "approved";
+    $preference->notification_url = NOTIFICATION_URL;
     $preference->save();
 
-    return $preference->sandbox_init_point;
+    return $preference->init_point;
 }
 
 
 function getPayment($paymentId){
-    return MercadoPago\Payment.find_by_id($paymentId);
+    $payment = new MercadoPago\Payment();
+    return $payment->find_by_id($paymentId);
 }

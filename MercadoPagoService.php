@@ -1,10 +1,17 @@
 <?php
+
+define("ACCESS_TOKEN", "APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398");
+define("CLIENT_ID", "469485398");
+define("PUBLIC_KEY", "APP_USR-7eb0138a-189f-4bec-87d1-c0504ead5626");
+
 define("BACK_SUCCESS", $_SERVER['SERVER_NAME'] . "/result_success.php");
 define("BACK_PENDING", $_SERVER['SERVER_NAME'] . "/result_pending.php");
 define("BACK_FAILURE", $_SERVER['SERVER_NAME'] . "/result_failure.php");
+
 define("DESCRIPTION_ITEM", "Dispositivo móvil de Tienda e-commerce");
 define("EXTERNAL_REFERENCE", "ABCD1234");
 define("ITEM_ID", "1234");
+
 
 function initPoint($title, $price, $unit, $image)
 {
@@ -12,9 +19,9 @@ function initPoint($title, $price, $unit, $image)
     require __DIR__ . '/vendor/autoload.php';
 
     // Credenciales
-    MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
-    MercadoPago\SDK::setClientId('469485398');
-    MercadoPago\SDK::setPublicKey('APP_USR-7eb0138a-189f-4bec-87d1-c0504ead5626');
+    MercadoPago\SDK::setAccessToken(ACCESS_TOKEN);
+    MercadoPago\SDK::setClientId(CLIENT_ID);
+    MercadoPago\SDK::setPublicKey(PUBLIC_KEY);
 
     $item = new MercadoPago\Item();
     $item->id = ITEM_ID;
@@ -65,4 +72,14 @@ function initPoint($title, $price, $unit, $image)
     $preference->save();
 
     return $preference->sandbox_init_point;
+}
+
+
+function getPayment($paymentId){
+    // Credenciales
+    MercadoPago\SDK::setAccessToken(ACCESS_TOKEN);
+    MercadoPago\SDK::setClientId(CLIENT_ID);
+    MercadoPago\SDK::setPublicKey(PUBLIC_KEY);
+
+    return MercadoPago\Payment::find_by_id($paymentId);
 }

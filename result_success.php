@@ -1,3 +1,8 @@
+<?php
+require_once "MercadoPagoService.php";
+$payment = getPayment($_GET["collection_id"]);
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -437,10 +442,11 @@
     El pago fué exitoso
 </h1>
 
-<p>
-    <br />
-    <br />
-    <br />
+<p style="font-size: 25px; margin-top:30px;">
+    <strong>Payment_method_id: </strong> <?php print $payment->payment_type_id; ?><br />
+    <strong>Monto abonado: </strong> <?php print $payment->transaction_amount; ?>  <br />
+    <strong>Número de orden del pedido:</strong> <?php print $payment->order->id; ?> <br />
+    <strong>ID de pago de mercadopago:</strong> <?php print $payment->id ?>
 </p>
 
 

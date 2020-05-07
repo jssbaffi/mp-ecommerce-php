@@ -79,6 +79,5 @@ function initPoint($title, $price, $unit, $image)
 
 
 function getPayment($paymentId){
-    $payment = new MercadoPago\Payment();
-    return $payment->find_by_id($paymentId);
+    return MercadoPago\Payment::find_by_id($paymentId);
 }

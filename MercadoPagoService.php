@@ -70,7 +70,7 @@ function createPreference($title, $price, $unit, $image)
         "failure" => BACK_FAILURE,
         "pending" => BACK_PENDING
     );
-    $preference->auto_return = "approved";
+    $preference->auto_return = "all";
     $preference->notification_url = NOTIFICATION_URL;
     $preference->save();
 

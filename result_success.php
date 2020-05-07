@@ -1,9 +1,6 @@
 <?php
 require_once "MercadoPagoService.php";
 $payment = getPayment($_GET["collection_id"]);
-echo "<pre>";
-var_dump($payment);
-echo "</pre>";
 ?>
 
 <!doctype html>

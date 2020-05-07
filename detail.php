@@ -1,7 +1,9 @@
 <?php
 require_once "MercadoPagoService.php";
-$preference = initPoint($_POST['title'], $_POST['price'], $_POST['unit'], $_POST['img']);
+$preference = createPreference($_POST['title'], $_POST['price'], $_POST['unit'], $_POST['img']);
 ?>
+
+
 
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser"
@@ -501,11 +503,11 @@ $preference = initPoint($_POST['title'], $_POST['price'], $_POST['unit'], $_POST
                                         <?php echo "$" . $_POST['unit'] ?>
                                     </h3>
                                 </div>
-                                <?php echo $_POST['img'] ?>
-<!--                                <a href="--><?php //print initPoint($_POST['title'], $_POST['price'], $_POST['unit'], $_POST['img']); ?><!--">Pay</a>-->
-<!--                                <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
                                 <form action="/procesar-pago" method="POST">
-                                    <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+                                    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                                            data-button-label="Pagar la compra"
+                                            data-elements-color="#2D3277"
+                                            data-header-color="#2D3277"
                                             data-preference-id="<?php print $preference->id; ?>">
                                     </script>
                                 </form>
@@ -563,6 +565,7 @@ $preference = initPoint($_POST['title'], $_POST['price'], $_POST['unit'], $_POST
     </svg>
 </div>
 <div id="ac-gn-viewport-emitter"></div>
+
 </body>
 </html>
 

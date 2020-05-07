@@ -21,7 +21,7 @@ MercadoPago\SDK::setClientId(CLIENT_ID);
 MercadoPago\SDK::setPublicKey(PUBLIC_KEY);
 
 
-function initPoint($title, $price, $unit, $image)
+function createPreference($title, $price, $unit, $image)
 {
 
     $item = new MercadoPago\Item();
@@ -30,7 +30,7 @@ function initPoint($title, $price, $unit, $image)
     $item->quantity = $unit;
     $item->unit_price = $price;
     $item->description = DESCRIPTION_ITEM;
-    $item->picture_url = $_SERVER['SERVER_NAME'] . $image;
+    $item->picture_url = "https://jssbaffi-mp-commerce-php.herokuapp.com/assets/u_10168742.jpg";
 
     $payer = new MercadoPago\Payer();
     $payer->name = "Lalo";

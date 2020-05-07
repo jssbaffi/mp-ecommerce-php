@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="133c04dd-bcb5-4b30-b26c-2cfba8d4eca2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MercadoPagoService.php" beforeDir="false" afterPath="$PROJECT_DIR$/MercadoPagoService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification.php" beforeDir="false" afterPath="$PROJECT_DIR$/notification.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588850999600</updated>
       <workItem from="1588851001112" duration="17333000" />
-      <workItem from="1588875287385" duration="1407000" />
+      <workItem from="1588875287385" duration="1562000" />
     </task>
     <servers />
   </component>
